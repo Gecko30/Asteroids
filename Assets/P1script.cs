@@ -18,20 +18,22 @@ public class P1script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rotationAngle;
+        float rotationAngle=0.0f;
         //myTime = myTime + Time.deltaTime;
         //replace the KeyCodes with whatever buttons on the thing
-        
 
-        if(rigidBody.transform.eulerAngles.z<=180f )
-        {
-            rotationAngle = rigidBody.transform.eulerAngles.z;
-        }
-        else
-        {
-            rotationAngle = rigidBody.transform.eulerAngles.z;
-        }
-        print(rotationAngle);
+        /*
+                if(rigidBody.transform.eulerAngles.z<=360f )
+                {
+                    rotationAngle = rigidBody.transform.eulerAngles.z;
+                }
+                else
+                {
+                   rotationAngle = rigidBody.transform.eulerAngles.z-360f;
+                }
+        */
+        rotationAngle = rigidBody.transform.eulerAngles.z;
+        print("angle= "+ rotationAngle + " x value= "+-Mathf.Sin(rotationAngle)+ " y value = " + -Mathf.Cos(rotationAngle));
         if (Input.GetKey("up") == true)
         {
             //rigidBody.rotation 
@@ -39,10 +41,10 @@ public class P1script : MonoBehaviour
         }
         if(Input.GetKey("right") == true) {
 
-            rigidBody.velocity = new Vector2(Mathf.Cos(rotationAngle),Mathf.Sin(rotationAngle)) * rocketStrength;
+            rigidBody.velocity = new Vector2(-Mathf.Sin(rotationAngle)*rocketStrength,-Mathf.Cos(rotationAngle) * rocketStrength);
         }
         if(Input.GetKey("left") == true) {
-            rigidBody.velocity = new Vector2(-Mathf.Cos(rotationAngle), -Mathf.Sin(rotationAngle)) * rocketStrength;
+            rigidBody.velocity = new Vector2(Mathf.Sin(rotationAngle) * rocketStrength, Mathf.Cos(rotationAngle) * rocketStrength);
         }
         if(Input.GetKey("down") == true) {
             rigidBody.transform.Rotate(0,0,-rotationSpeed);
