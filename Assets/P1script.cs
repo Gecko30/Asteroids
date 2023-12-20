@@ -33,6 +33,8 @@ public class P1script : MonoBehaviour
                 }
         */
         rotationAngle = rigidBody.transform.eulerAngles.z;
+        //convert to radians
+        rotationAngle = rotationAngle * Mathf.PI / 180;
         print("angle= "+ rotationAngle + " x value= "+-Mathf.Sin(rotationAngle)+ " y value = " + -Mathf.Cos(rotationAngle));
         if (Input.GetKey("up") == true)
         {
