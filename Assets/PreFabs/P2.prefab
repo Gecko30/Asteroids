@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6904874367267260597
+--- !u!1 &7681884186471062014
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8110175323480029598}
-  - component: {fileID: 9011299993282015535}
-  - component: {fileID: 4005947794186159205}
-  - component: {fileID: 6102962446610273074}
+  - component: {fileID: 4778269966008810115}
+  - component: {fileID: 771665710048389854}
+  - component: {fileID: 5233755728793987566}
+  - component: {fileID: 3022947469678639887}
+  - component: {fileID: 4642722887645786916}
   m_Layer: 0
-  m_Name: PlayerOne
-  m_TagString: Untagged
+  m_Name: P2
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8110175323480029598
+--- !u!4 &4778269966008810115
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904874367267260597}
+  m_GameObject: {fileID: 7681884186471062014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.29, y: 1.98, z: -8.7}
+  m_LocalPosition: {x: 7.92, y: -0.03, z: -8.7}
   m_LocalScale: {x: -1.27, y: -1.27, z: -1.27}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!212 &9011299993282015535
+--- !u!212 &771665710048389854
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904874367267260597}
+  m_GameObject: {fileID: 7681884186471062014}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 934fdb2cba9687d44a5f52b9b76db705, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a1991f4ed9a090428d430fba1d6c380, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,14 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4005947794186159205
+--- !u!50 &5233755728793987566
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904874367267260597}
+  m_GameObject: {fileID: 7681884186471062014}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.05
   m_AngularDrag: 0.05
-  m_GravityScale: 0.1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,13 +114,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &6102962446610273074
+--- !u!60 &3022947469678639887
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904874367267260597}
+  m_GameObject: {fileID: 7681884186471062014}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -174,3 +175,21 @@ PolygonCollider2D:
       - {x: 0.0016309319, y: 0.0043248944}
       - {x: 0.05907616, y: -0.074392825}
   m_UseDelaunayMesh: 0
+--- !u!114 &4642722887645786916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681884186471062014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a01af9b5f66d9d4bb51886344ca8f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 5233755728793987566}
+  rocketStrength: 0.015
+  rotationSpeed: 0.5
+  maxRotationSpeed: 10
+  bulletSpawner: {fileID: 9090850958841005081, guid: fe0f21b6d7c33424997e9c06d0da4dae, type: 3}
+  offset: 10

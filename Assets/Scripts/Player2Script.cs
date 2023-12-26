@@ -13,7 +13,7 @@ public class Player2Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,7 +23,6 @@ public class Player2Script : MonoBehaviour
         Vector3 orientationVector3;
         BulletMovementScript bms = bulletSpawner.GetComponent<BulletMovementScript>();
         float rotationAngle = 0.0f;
-        //myTime = myTime + Time.deltaTime;
         //replace the KeyCodes with whatever buttons on the thing
 
 
@@ -38,7 +37,7 @@ public class Player2Script : MonoBehaviour
         }
         if (Input.GetKey("s") == true)
         {
-            orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
+            orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
             {
 
@@ -57,7 +56,7 @@ public class Player2Script : MonoBehaviour
             }
 
         }
-        if (Input.GetKey("a") == true)
+        if (Input.GetKey("a") == true )
         {
             rigidBody.transform.Rotate(0, 0, -rotationSpeed);
         }
@@ -66,15 +65,9 @@ public class Player2Script : MonoBehaviour
         {
             orientationVector3 = orientationVector;
             bms.bulletVector = orientationVector3;
-            Instantiate(bulletSpawner, rigidBody.position + orientationVector * 45, transform.rotation);
-            bulletSpawner.tag = "P2";
+            Instantiate(bulletSpawner, rigidBody.position + orientationVector * offset, transform.rotation);
+            bulletSpawner.tag = "P2Bullet";
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("P1"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+
 }

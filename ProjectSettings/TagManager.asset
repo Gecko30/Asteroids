@@ -7,6 +7,10 @@ TagManager:
   - Bullet
   - P1
   - P2
+  - Asteroid
+  - Logic
+  - P1Bullet
+  - P2Bullet
   layers:
   - Default
   - TransparentFX

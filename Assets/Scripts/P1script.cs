@@ -10,11 +10,9 @@ public class P1script : MonoBehaviour
     public float maxRotationSpeed;
     public GameObject bulletSpawner;
     public float offset;
-
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -39,7 +37,7 @@ public class P1script : MonoBehaviour
              }
             if (Input.GetKey("down") == true)
             {
-            orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
+            orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
                 {
                
@@ -67,16 +65,10 @@ public class P1script : MonoBehaviour
             orientationVector3 = orientationVector;
             bms.bulletVector = orientationVector3;
             Instantiate(bulletSpawner, rigidBody.position + (orientationVector*offset), transform.rotation);
-            bulletSpawner.tag = "P1";
-        }
+            bulletSpawner.tag = "P1Bullet";
+            }
 
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("P2"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+
 }
