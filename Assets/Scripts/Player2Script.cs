@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player2Script : MonoBehaviour
 {
@@ -10,10 +11,14 @@ public class Player2Script : MonoBehaviour
     public float maxRotationSpeed;
     public GameObject bulletSpawner;
     public float offset;
+    public GameObject logicManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            Debug.Log(Gamepad.all[i].name);
+        }
     }
 
     // Update is called once per frame
@@ -56,7 +61,7 @@ public class Player2Script : MonoBehaviour
             }
 
         }
-        if (Input.GetKey("a") == true )
+        if (Input.GetKey("a") == true)
         {
             rigidBody.transform.Rotate(0, 0, -rotationSpeed);
         }
