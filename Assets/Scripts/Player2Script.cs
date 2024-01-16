@@ -31,11 +31,11 @@ public class Player2Script : MonoBehaviour
         rotationAngle = rotationAngle * Mathf.PI / 180;
 
 
-        if (Input.GetKey("d") == true)
+        if (Input.GetKey("l") == true)
         {
             rigidBody.transform.Rotate(0, 0, rotationSpeed);
         }
-        if (Input.GetKey("s") == true)
+        if (Input.GetKey("k") == true)
         {
             orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
@@ -47,7 +47,7 @@ public class Player2Script : MonoBehaviour
 
         }
         orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
-        if (Input.GetKey("w") == true)
+        if (Input.GetKey("i") == true)
         {
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
             {
@@ -56,12 +56,12 @@ public class Player2Script : MonoBehaviour
             }
 
         }
-        if (Input.GetKey("a") == true )
+        if (Input.GetKey("j") == true )
         {
             rigidBody.transform.Rotate(0, 0, -rotationSpeed);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             orientationVector3 = orientationVector;
             bms.bulletVector = orientationVector3;

@@ -31,11 +31,11 @@ public class P1script : MonoBehaviour
         rotationAngle = rotationAngle * Mathf.PI / 180;
 
 
-            if (Input.GetKey("right") == true)
+            if (Input.GetKey("d") == true)
             {
             rigidBody.transform.Rotate(0, 0, rotationSpeed);
              }
-            if (Input.GetKey("down") == true)
+            if (Input.GetKey("s") == true)
             {
             orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
@@ -47,7 +47,7 @@ public class P1script : MonoBehaviour
                 
             }
         orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
-        if (Input.GetKey("up") == true)
+        if (Input.GetKey("w") == true)
             {
                 if (rigidBody.velocity.magnitude < maxRotationSpeed)
                 {
@@ -56,12 +56,12 @@ public class P1script : MonoBehaviour
                 }
   
             }
-            if (Input.GetKey("left") == true)
+            if (Input.GetKey("a") == true)
             {
                 rigidBody.transform.Rotate(0, 0, -rotationSpeed);
             }
 
-            if(Input.GetKeyDown(KeyCode.Keypad1)) {
+            if(Input.GetKeyDown(KeyCode.E)) {
             orientationVector3 = orientationVector;
             bms.bulletVector = orientationVector3;
             Instantiate(bulletSpawner, rigidBody.position + (orientationVector*offset), transform.rotation);
