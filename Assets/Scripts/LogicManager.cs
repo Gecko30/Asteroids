@@ -34,10 +34,10 @@ public class LogicManager : MonoBehaviour
 
     void Update()
     {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) || Gamepad.all[0].buttonEast.wasPressedThisFrame)
                 {
             restartGame();
-        }
+                }
     }
 
     public void p1Wins()

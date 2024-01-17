@@ -37,11 +37,11 @@ public class P1script : MonoBehaviour
         rotationAngle = rotationAngle * Mathf.PI / 180;
 
 
-            if (Input.GetKey("d") == true)
+            if (Input.GetKey("d") == true || Gamepad.all[0].leftStick.right.isPressed)
             {
             rigidBody.transform.Rotate(0, 0, rotationSpeed);
              }
-            if (Input.GetKey("s") == true)
+            if (Input.GetKey("s") == true || Gamepad.all[0].leftStick.down.isPressed)
             {
             orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
@@ -53,7 +53,7 @@ public class P1script : MonoBehaviour
                 
             }
         orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
-        if (Input.GetKey("w") == true)
+        if (Input.GetKey("w") == true || Gamepad.all[0].leftStick.up.isPressed)
             {
             if (rigidBody.velocity.magnitude < maxRotationSpeed){
             
@@ -64,12 +64,12 @@ public class P1script : MonoBehaviour
            
 
         
-        if (Input.GetKey("j") == true)
+        if (Input.GetKey("a") == true || Gamepad.all[0].leftStick.left.isPressed)
         {
             rigidBody.transform.Rotate(0, 0, -rotationSpeed);
 
         }
-        if (Input.GetKeyDown(KeyCode.E)) { 
+        if (Input.GetKeyDown(KeyCode.E) || Gamepad.all[0].leftShoulder.wasPressedThisFrame ) { 
                 orientationVector3 = orientationVector;
                 bms.bulletVector = orientationVector3;
                 Instantiate(bulletSpawner, rigidBody.position + (orientationVector * offset), transform.rotation);
