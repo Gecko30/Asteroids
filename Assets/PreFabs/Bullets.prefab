@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494a5ca1ffc803942a84a1780fa3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletVector: {x: 0.0413295, y: 0.028140236, z: 0}
+  bulletVector: {x: -0, y: -0.05, z: 0}
   bulletSpeed: 500
 --- !u!114 &832413432612817366
 MonoBehaviour:
