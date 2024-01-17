@@ -15,7 +15,7 @@ public class BulletMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = (bulletVector* bulletSpeed) + transform.position;
+        transform.position += (bulletVector* bulletSpeed)*Time.deltaTime;
         if(transform.position.y > 5.50 ||transform.position.y<-8.84||transform.position.x < -9.65 ||transform.position.x> 9.9)
         {
             Destroy(gameObject);

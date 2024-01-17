@@ -62,8 +62,7 @@ public class P1script : MonoBehaviour
             }
 
            
-
-        }
+        
         if (Input.GetKey("a") == true)
         {
             rigidBody.transform.Rotate(0, 0, -rotationSpeed);
