@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletVector: {x: -0, y: -0.05, z: 0}
-  bulletSpeed: 10
+  bulletSpeed: 500
 --- !u!114 &832413432612817366
 MonoBehaviour:
   m_ObjectHideFlags: 0
