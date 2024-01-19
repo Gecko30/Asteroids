@@ -7,8 +7,8 @@ public class AsteroidMovement : MonoBehaviour
     public int timer;
     public Vector3 asteroidVector;
     public float moveSpeed;
-    public bool flipper = false;
-    public bool flipped = true;
+    public bool flipper = true;
+
     public float clock = 0;
     // Start is called before the first frame update
     void Start()
@@ -21,23 +21,14 @@ public class AsteroidMovement : MonoBehaviour
     {
         clock += Time.deltaTime;
 
-        
-        if ((Mathf.Round(clock) % timer ==0))
+
+        if (clock > timer)
         {
-            if(flipped)
-            {
-                flipped = false;
-                flipper = true;
-            }
+            flipper = !flipper;
+            clock = 0;
+
         }
-        else
-        {
-            if (flipper)
-            {
-                flipped = true;
-                flipper = false;
-            }
-        }
+
 
         if (flipper)
         {
