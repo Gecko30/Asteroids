@@ -2509,11 +2509,15 @@ PrefabInstance:
       objectReference: {fileID: 9090850958841005081, guid: fe0f21b6d7c33424997e9c06d0da4dae, type: 3}
     - target: {fileID: 6551204302945043879, guid: 31124ce257c5191419981e5415ec1a7d, type: 3}
       propertyPath: rotationSpeed
-      value: 1.75
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6551204302945043879, guid: 31124ce257c5191419981e5415ec1a7d, type: 3}
       propertyPath: rocketStrength
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551204302945043879, guid: 31124ce257c5191419981e5415ec1a7d, type: 3}
+      propertyPath: maxRotationSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8586265734533632389, guid: 31124ce257c5191419981e5415ec1a7d, type: 3}
       propertyPath: m_LocalPosition.x

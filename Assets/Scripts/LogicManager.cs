@@ -14,8 +14,7 @@ public class LogicManager : MonoBehaviour
     
     public void restartGame()
     {
-        int mapchooser = Random.Range(1,9); //have this be a random number
-        //have a number generator and create multiple scenes
+        int mapchooser = Random.Range(1,10); //Max Exclusive
         string mapname = "Map"+mapchooser.ToString();
         SceneManager.LoadSceneAsync(mapname);
         p1Alive = true;

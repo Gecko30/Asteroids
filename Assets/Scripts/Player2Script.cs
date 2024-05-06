@@ -36,11 +36,11 @@ public class Player2Script : MonoBehaviour
         rotationAngle = rotationAngle * Mathf.PI / 180;
 
 
-        if (Input.GetKey("l") == true)
+        if (Gamepad.all[0].rightStick.right.isPressed)
         {
-            rigidBody.transform.Rotate(0, 0, rotationSpeed);
+            rigidBody.transform.Rotate(0, 0, rotationSpeed*Time.deltaTime);
         }
-        if (Input.GetKey("k") == true)
+        if (Gamepad.all[0].rightStick.up.isPressed)
         {
             orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
@@ -52,7 +52,7 @@ public class Player2Script : MonoBehaviour
 
         }
         orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
-        if (Input.GetKey("i") == true)
+        if (Gamepad.all[0].rightStick.down.isPressed)
         {
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
             {
@@ -62,12 +62,12 @@ public class Player2Script : MonoBehaviour
 
         }
 
-        if (Input.GetKey("j") == true )
+        if (Gamepad.all[0].rightStick.left.isPressed)
         {
-            rigidBody.transform.Rotate(0, 0, -rotationSpeed);
+            rigidBody.transform.Rotate(0, 0, -rotationSpeed*Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Gamepad.all[0].rightShoulder.wasPressedThisFrame)
         {
             orientationVector3 = orientationVector;
             bms.bulletVector = orientationVector3;

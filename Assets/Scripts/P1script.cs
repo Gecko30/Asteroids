@@ -25,6 +25,7 @@ public class P1script : MonoBehaviour
     {
         Vector2 orientationVector;
         Vector3 orientationVector3;
+        
 
         BulletMovementScript bms = bulletSpawner.GetComponent<BulletMovementScript>();
         float rotationAngle = 0.0f;
@@ -36,12 +37,11 @@ public class P1script : MonoBehaviour
         //convert to radians
         rotationAngle = rotationAngle * Mathf.PI / 180;
 
-
-            if (Input.GetKey("d") == true)
+            if (Gamepad.all[0].leftStick.right.isPressed)
             {
-            rigidBody.transform.Rotate(0, 0, rotationSpeed);
+            rigidBody.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
              }
-            if (Input.GetKey("s") == true)
+            if (Gamepad.all[0].leftStick.up.isPressed)
             {
             orientationVector = -(new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
             if (rigidBody.velocity.magnitude < maxRotationSpeed)
@@ -49,11 +49,10 @@ public class P1script : MonoBehaviour
                
                 rigidBody.velocity = (rigidBody.velocity) +orientationVector;
                 }
-         
                 
             }
         orientationVector = (new Vector2(Mathf.Sin(rotationAngle), Mathf.Cos(rotationAngle))).normalized * -rocketStrength;
-        if (Input.GetKey("w") == true)
+        if (Gamepad.all[0].leftStick.down.isPressed)
             {
             if (rigidBody.velocity.magnitude < maxRotationSpeed){
             
@@ -63,12 +62,13 @@ public class P1script : MonoBehaviour
 
            
         
-        if (Input.GetKey("a") == true)
+        if (Gamepad.all[0].leftStick.left.isPressed)
         {
-            rigidBody.transform.Rotate(0, 0, -rotationSpeed);
+            rigidBody.transform.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
 
         }
-        if (Input.GetKeyDown(KeyCode.E)) { 
+        //this is to prevent spamming
+        if (Gamepad.all[0].leftShoulder.wasPressedThisFrame) { 
                 orientationVector3 = orientationVector;
                 bms.bulletVector = orientationVector3;
                 Instantiate(bulletSpawner, rigidBody.position + (orientationVector * offset), transform.rotation);
